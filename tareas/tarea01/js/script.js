@@ -41,7 +41,7 @@ function currencyConverter(){
                 exchangeRate = currencyInfo[5]["rate"]
         }
     
-        let convertedCurrency = (money*exchangeRate).toFixed(2)
+        let convertedCurrency = (money*exchangeRate).toFixed(1)
 
         console.log(`$${money} MXN equivalen a ${currencyInfo[country]["symbol"]}${convertedCurrency} ${currencyInfo[country]["isoCode"]}.`)
         
