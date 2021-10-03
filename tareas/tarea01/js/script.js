@@ -1,4 +1,4 @@
-function moneyExchange(){
+function currencyConverter(){
     
     const chooseACountry =
     `¿A qué región desea viajar?\n
@@ -56,5 +56,5 @@ function moneyExchange(){
     }
 }
 
-moneyExchange()
+currencyConverter()
 
