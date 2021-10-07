@@ -13,7 +13,7 @@ Solucion:
 // definir ciclo a usar
 // establecer el index
 // hacer el producto del numero ingresado por el index
-// imprimir resultado
+// imprimir resultados
 // incrementar el index en una unidad
 
 
@@ -38,7 +38,7 @@ Pedir al usuario un numero entre 10 y 100
 Imprimir todos los numeros pares que existen entre 1 y ese numero
 */
 
-Solucion:
+// Solucion:
 
 function evenNumbers(){
     let userNumber2 = parseInt(window.prompt("Ingrese un número entre 10 y 100:"))
@@ -77,23 +77,6 @@ console.log(sum)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 Ejercicio 4:
 Imprimir en consola el siguiente patrón
@@ -122,3 +105,30 @@ function asterisks(){
 }
 
 // asterisks()
+
+
+
+//------------------- Extra --------------------
+
+// let i = 1
+// let printDigits = `${i}`
+// while(i <= 10){
+//     console.log(`${printDigits}`)
+//     printDigits = printDigits + `${i}`  
+//     i++
+// }
+
+
+let i = 1
+let nSymbols = `${i}`
+
+console.log(nSymbols)
+
+let symb = "2"
+let nSymb = 2*symb
+console.log(nSymb)
+// while(i < 11){
+//     nSymbols = nSymbols + `${i}`
+//     console.log(`${nSymbols}`)
+//     i ++
+// }
