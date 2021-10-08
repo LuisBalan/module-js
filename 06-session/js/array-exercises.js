@@ -35,8 +35,10 @@ function inputListItems(){
     }
     
     for (i = 0; i < kodersArray.length ; i++){
-        let splittedName = kodersArray[i].split(" ")    
-        console.log(`Koder ${i+1}: ${kodersArray[i]} (${splittedName[0][0].toUpperCase()}, ${splittedName[1][0].toUpperCase()})`)
+        let splittedName = kodersArray[i].split(" ")
+        let kName = splittedName[0][0].toUpperCase()
+        let kLastName = splittedName[1][0].toUpperCase()
+        console.log(`Koder ${i+1}: ${kodersArray[i]} (${kName}. ${kLastName}.)`)
     }
 }
 
