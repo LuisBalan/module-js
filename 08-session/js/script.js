@@ -134,7 +134,11 @@ const getScore = subject => {
     return console.log(`El score promedio de ${subject} es ${promedio}`);
   }
 
-//   getScore("JS")
+getScore("CSS")
+
+
+
+
 
 
 
@@ -153,8 +157,13 @@ const getScoreByName = mentorName => {
             });
             console.log(`Promedio individual de ${mentor.name} es de ${promedio}`);
         }
+        suma = 0;
     });
   }
+
+getScoreByName("Alejandra Paez")
+
+
 
 
 
@@ -190,21 +199,18 @@ selectedGroup(8.5)
 const getAllScores = () => {
     let suma = 0;
     let promedio= 0;
-    let name = "";
     let namePromedioArray = []
-    mentorsArray.forEach((mentor) => {
-        name = mentor.name;
-        mentor.scores.forEach((materia, index) => {
-            suma += materia.score;
-            promedio = suma/(index + 1);
+        mentorsArray.forEach((mentor) => {
+            mentor.scores.forEach((materia, index) => {
+                suma += materia.score;
+                promedio = suma/(index + 1);
         });
-        namePromedioArray.push(`Mi nombre es ${name} y mi promedio es de ${promedio}`)
-        // console.log(`Mi nombre es ${name} y mi promedio es de ${promedio}`);
+        namePromedioArray.push(`Mi nombre es ${mentor.name} y mi promedio es de ${promedio}`)
         suma = 0;
     });
     return console.log(namePromedioArray)
 }
 
-// getAllScores()
+getAllScores()
 
 
