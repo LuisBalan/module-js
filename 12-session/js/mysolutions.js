@@ -181,6 +181,7 @@ console.log(koders2)
 
 // Colección de Koder que pertenezcan a JavaScript o Python
 
+// Solución 1
 const kodersAccordingToBootcamp = (theArray, bootcampName) => {
   return theArray.filter((eachKoder) => eachKoder.bootcamp === bootcampName  
   )
@@ -188,8 +189,15 @@ const kodersAccordingToBootcamp = (theArray, bootcampName) => {
 
 console.log(kodersAccordingToBootcamp(koders2, "JavaScript"))
 
+//Solución 2
 
+const kodersAccordingToBootcamp2 = (theArray) => {
+    let bootcampsNameArray = theArray.reduce((counter, currentValue) =>{
+        if(currentValue.bootcamp == "JavaScript") counter.JavaScript.push(currentValue)
+        else if (currentValue.bootcamp == "Python") counter.Python.push(currentValue)
+        return counter
+    }, {Python:[], JavaScript:[]})
+    return bootcampsNameArray
+}
 
-
-
-
+console.log(kodersAccordingToBootcamp2(koders))
