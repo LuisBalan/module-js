@@ -30,25 +30,30 @@
 // })
 // sendPost(post, urlDB)
 
-let arr = []
 
-function bouncer(arr){
 
-    let resArray = arr.slice();
-    
-      for(let i = 0; i < resArray.length ; i++){
-    
-        if(Boolean(resArray[i]) === false){
-          resArray.splice(i, 1)
-        }
-    
-      }
-      return resArray;
-}
+// function bouncer(arr){
+//     let resArray = arr.slice();
+//       for(let i = 0; i < resArray.length ; i++){
+//         if(Boolean(resArray[i]) == false){
+//           resArray.splice(i, 1)
+//         }
+//     }
+//     console.log(resArray)
+//     return resArray;
+// }
+
+const bouncer = (arr) => {
+    let newArray = [];
+    for(let i = 0; i < arr.length ; i++){
+        Boolean(arr[i]) == false ? null : newArray.push(arr[i]) 
+    };
+    return newArray;
+};
     
 console.log("test01", bouncer([7, "ate", "", false, 9]));
 console.log("test02", bouncer(["a", "b", "c"]));
 console.log("test03", bouncer([false, null, 0, NaN, undefined, ""]));
 console.log("test04", bouncer([null, NaN, 1, 2, undefined]));
-console.log(Boolean(NaN));
+
 
