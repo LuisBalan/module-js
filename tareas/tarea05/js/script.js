@@ -98,9 +98,8 @@ function oneSong1(){
     let input = window.prompt("Nombre de la banda: ")
     for (i = 0 ; i < songsData.length ; i++){
         if (input.toUpperCase() != songsData[i].band.toUpperCase()){
-            console.log("No se encontró ningún resultado")
+            // console.log("No se encontró ningún resultado")
         }else if (input.toUpperCase() == songsData[i].band.toUpperCase()){
-            
             console.log(songsData[i])
         }
     }
@@ -113,7 +112,7 @@ function oneSong2(){
     for (i = 0 ; i < songsData.length ; i++){
         bandsArray.push(songsData[i].band.toUpperCase())
     }
-
+    
     let input = window.prompt("Nombre de la banda: ")
     let upperCaseInput = input.toUpperCase()
     
@@ -122,14 +121,52 @@ function oneSong2(){
     } else{
         console.log("No se encontró ninguna coincidencia")
     }
-
+    
 }
 
-oneSong2()
+// oneSong2()
 
 
 
 //------------ Exercise 2 solution --------------------
 
 
+// -Generar el top 5 de las canciones mas escuchadas (ready)
 
+const topArray = (theArray, top) =>{
+  let sortedArray = theArray.sort(function(a, b){
+    return b.statistics.reproductions - a.statistics.reproductions
+  }) 
+
+  return console.log(sortedArray.slice(0, 3))
+}
+
+
+topArray(songsData, songsData.length)
+
+// -Mostrar la cancion mas reciente (ready)
+
+const mostRecentSongs = (theArray, top) => {
+  let recentSongs = theArray.sort(function(a, b){
+    return b.releaseYear - a.releaseYear
+  })
+
+  return console.log(recentSongs.slice(0, top))
+
+}
+
+mostRecentSongs(songsData, 2)
+
+
+// -Mostrar el artista más gustado a los fans
+
+const mostLikedSong = (theArray, top) => {
+  let likedSongs = theArray.sort(function(a, b){
+    return b.statistics.likes - a.statistics.likes
+  })
+
+  return console.log(likedSongs.slice(0, top))
+
+}
+
+mostLikedSong(songsData, 3)

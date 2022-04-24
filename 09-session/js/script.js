@@ -134,7 +134,7 @@ const getScore = subject => {
     return console.log(`El score promedio de ${subject} es ${promedio}`);
   }
 
-getScore("CSS")
+// getScore("JS")
 
 
 
@@ -157,11 +157,10 @@ const getScoreByName = mentorName => {
             });
             console.log(`Promedio individual de ${mentor.name} es de ${promedio}`);
         }
-        suma = 0;
     });
   }
 
-getScoreByName("Alejandra Paez")
+// getScoreByName("Alejandra Paez")
 
 
 

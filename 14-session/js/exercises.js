@@ -91,6 +91,27 @@ const mentorsArray = [
 const getMentorNames = (dataArray) => {
     return dataArray.map(eachMentor => eachMentor.name)
 }
+
+// get array with another structure
+
+
+const mentorsFullArray = mentorsArray.map((mentor) => {
+  const data = {
+    mentor: mentor.name,
+  };
+  mentor.scores.forEach((signature) => {
+    if(!data[signature.signature]){
+      data[signature.signature] = signature.score;
+    }
+  });
+  data[average] = getScoreByName(mentor.name);
+}
+);
+
+console.log(mentorsFullArray)
+
+
+
 // console.log(getMentorNames(mentorsArray))
 
 
@@ -121,14 +142,12 @@ const getModulesAverages = (dateArray) => {
   return average.toFixed(1)
 }
 
-// console.log((getModulesAverages(mentorsArray)))
-
 
 // table-head
 const table = document.createElement("table")
 const thead = document.createElement("thead")
 const trow = document.createElement("tr")
-let fields = ["Mentor", "HTML", "CSS", "JS", "ReactJS" ,"Promedio"]
+let fields = ["Mentor", "HTML", "CSS", "JS", "ReactJS" ,"Promedio", "Button"]
  
 const cabecera = fields.forEach((item) => {
     const td = document.createElement("td")
@@ -144,53 +163,85 @@ document.body.appendChild(table)
 
 const tbody = document.createElement("tbody")
 mentorsArray.forEach((mentor) => {
-  const tRowMentor = document.createElement("tr")
+  const tMentor = document.createElement("tr")
   const tdName = document.createElement("td")
   const mentorName = document.createTextNode(mentor.name)
   tdName.appendChild(mentorName)
-  tRowMentor.appendChild(tdName)
+  tMentor.appendChild(tdName)
   mentor.scores.forEach((eachModule) => {
     const td = document.createElement("td")
     const moduleScore = document.createTextNode(eachModule.score)
     td.appendChild(moduleScore)
-    tRowMentor.appendChild(td)
+    tMentor.appendChild(td)
 
   })
   const tdAverage = document.createElement("td")
   const mentorAverage = document.createTextNode(getScoreByName(mentor.name))
   tdAverage.appendChild(mentorAverage)
-  tRowMentor.appendChild(tdAverage)
-  tbody.appendChild(tRowMentor)
-})
+  tMentor.appendChild(tdAverage)
+  tbody.appendChild(tMentor)
+
+  const tdButton = document.createElement("td")
+  const button = document.createElement("button")
+  const textButton = document.createTextNode("Delete")
+  // button.classList.add(`${mentor["name"]}`)
+  button.appendChild(textButton)
+  tdButton.appendChild(button)
+  tMentor.appendChild(tdButton)
+
+
+}
+
+
+)
 
 table.appendChild(tbody)
 document.body.appendChild(table)
 
 //table-foot
 const tfoot = document.createElement("tfoot")
-const totalAverageTr = document.createElement("tr")
+const tMentor = document.createElement("tr")
 const promedioTd = document.createElement("td")
 const promedioTag = document.createTextNode("Promedio General")
 promedioTd.appendChild(promedioTag)
-totalAverageTr.appendChild(promedioTd)
+tMentor.appendChild(promedioTd)
 
 const promedioNextCols = document.createElement("td")
 promedioNextCols.colSpan = "4"
-totalAverageTr.appendChild(promedioNextCols)
+tMentor.appendChild(promedioNextCols)
 
 const averageValueTd = document.createElement("td")
 const averageValueText = document.createTextNode(getModulesAverages(mentorsArray))
 averageValueTd.appendChild(averageValueText)
-totalAverageTr.appendChild(averageValueTd)
+tMentor.appendChild(averageValueTd)
 
-tfoot.appendChild(totalAverageTr)
+const tdButton = document.createElement("td")
+const button = document.createElement("button")
+const textButton = document.createTextNode("Delete")
+button.appendChild(textButton)
+tdButton.appendChild(button)
+tMentor.appendChild(tdButton)
+
+
+tfoot.appendChild(tMentor)
 table.appendChild(tfoot)
 document.body.appendChild(table)
 
 
+// const deleteButton = document.querySelectorAll("button")
+//   mentorsArray.forEach((mentor) => {
+//     deleteButton.forEach((button) => {
+//       button.classList.add(`myclass`)
+
+//     })
+//   })
+  
 
 
-
+// deleteButton.forEach((button) => {
+//   button.addEventListener("click", (event) => {
+//   })
+// })
 
 
 

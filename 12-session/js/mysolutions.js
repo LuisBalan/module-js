@@ -104,7 +104,7 @@ const koders = [
           score: 100
         }
       ]
-    }
+    },
   ];
   // console.log(koders)
   
@@ -155,15 +155,28 @@ const getAverage = (theArray) => {
 }
 
 //Función constructora
-function Koder(name, lastName, birthday, generation, bootcamp, scores){
-  this.name = name;
-  this.lastName = lastName;
-  this.birthday = birthday;
-  this.age = getAge(birthday) 
-  this.generation = generation;
-  this.bootcamp = bootcamp;
-  this.scores = scores;
-  this.average = getAverage(scores)
+// function Koder(name, lastName, birthday, generation, bootcamp, scores){
+//   this.name = name;
+//   this.lastName = lastName;
+//   this.birthday = birthday;
+//   this.age = getAge(birthday) 
+//   this.generation = generation;
+//   this.bootcamp = bootcamp;
+//   this.scores = scores;
+//   this.average = getAverage(scores)
+// }
+
+class Koder{
+    constructor(name, lastName, birthday, generation, bootcamp, scores){
+        this.name = name;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.age = getAge(birthday) 
+        this.generation = generation;
+        this.bootcamp = bootcamp;
+        this.scores = scores;
+        this.average = getAverage(scores)
+    }
 }
 
 //Función creadora del nuevo arreglo con objetos tipo koder
@@ -188,16 +201,65 @@ const kodersAccordingToBootcamp = (theArray, bootcampName) => {
 }
 
 console.log(kodersAccordingToBootcamp(koders2, "JavaScript"))
+console.log(kodersAccordingToBootcamp(koders2, "Python"))
 
 //Solución 2
 
 const kodersAccordingToBootcamp2 = (theArray) => {
-    let bootcampsNameArray = theArray.reduce((counter, currentValue) =>{
+    let bootcampsNameArray = theArray.reduce((counter, currentValue) => {
         if(currentValue.bootcamp == "JavaScript") counter.JavaScript.push(currentValue)
         else if (currentValue.bootcamp == "Python") counter.Python.push(currentValue)
         return counter
-    }, {Python:[], JavaScript:[]})
+    }, {JavaScript:[], Python:[]})
     return bootcampsNameArray
 }
 
-console.log(kodersAccordingToBootcamp2(koders))
+// console.log(kodersAccordingToBootcamp2(koders))
+
+//Solución 3
+
+// const kodersAccordingToBootcamp3 = (theArray) => {
+//     let allBootcamps = theArray.reduce((counter, currentValue) => {
+//         if(!counter.includes(currentValue.bootcamp)) counter.push(currentValue.bootcamp)
+//         return counter
+//     },[])
+//     theArray.reduce((counter, currentValue) => {
+
+//     })
+//     let bootcampsNameArray = theArray.reduce((counter, currentValue) => {
+//          if(!currentValue.bootcamp in counter) counter.currentValue.bootcamp = []
+//     }, {})
+//     return allBootcamps
+// }
+
+
+//-------------------------- retomar la siguiente solución ------------------
+
+// const kodersAccordingToBootcamp3 = (theArray) => {
+
+//     let bootcampNames= theArray.reduce((counter, currentValue) => {
+//          if(!(currentValue.bootcamp in counter)){
+//             counter[currentValue.bootcamp] = new Array;
+//         }
+//         return counter
+//     }, {})
+//     return bootcampNames
+
+//     let kodersByBootcamp = theArray.reduce((acumm, current) => {
+//         if(current.bootcamp in counter){
+//             counter[currentValue.bootcamp].push(currentValue)
+
+//         }
+//         return counter
+//     }, counter)
+
+//     return kodersByBootcamp
+
+
+
+
+// }
+
+// console.log(kodersAccordingToBootcamp3(koders))
+
+
